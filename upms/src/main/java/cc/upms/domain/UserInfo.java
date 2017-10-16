@@ -1,4 +1,4 @@
-package cc.upms.entitys;
+package cc.upms.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -115,8 +115,8 @@ public class UserInfo implements Serializable {
         return createTime;
     }
 
-    public void setCreateTime(Long time) {
-        this.createTime = time;
+    public void setCreateTime(Long createTime) {
+        this.createTime = createTime;
     }
 
     @Override

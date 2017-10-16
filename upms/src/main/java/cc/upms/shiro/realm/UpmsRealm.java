@@ -1,6 +1,6 @@
 package cc.upms.shiro.realm;
 
-import cc.upms.entitys.UserInfo;
+import cc.upms.domain.UserInfo;
 import cc.upms.service.api.UserInfoService;
 import cc.upms.util.MD5Util;
 import cc.upms.util.PropertiesFileUtil;
@@ -14,7 +14,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class UpmsRealm extends AuthorizingRealm {
