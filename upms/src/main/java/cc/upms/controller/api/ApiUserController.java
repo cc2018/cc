@@ -1,10 +1,10 @@
 package cc.upms.controller.api;
 
-import cc.upms.domain.Permission;
 import cc.upms.domain.UserInfo;
 import cc.upms.domain.view.PermissionView;
 import cc.upms.service.api.UserInfoService;
 import com.alibaba.fastjson.JSONObject;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,6 +33,7 @@ public class ApiUserController {
         return user;
     }
 
+    @RequiresPermissions("upms:user:read")
     @RequestMapping(value="/api/user/{userId}", method= RequestMethod.GET)
     public UserInfo getUser(@PathVariable Long userId) {
         return null;

@@ -30,7 +30,7 @@ public interface PermissionRepository extends CrudRepository<Permission,Long> {
      * 根据userId获取Permission
      * <p>HQL语句中表名应该是ORM映射的类名，字段也为成员变量，并且要as重命名为和view里面字段一一对应<br>
      * @param userId
-     * @return permission view 集合
+     * @return
      */
     //
     @Query(findUserPermission)

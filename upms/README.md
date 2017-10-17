@@ -1,5 +1,7 @@
 # 用户权限系统
 
+
+
 ### 创建数据库
 
 ```create database
@@ -34,5 +36,17 @@ upms_user_permission、upms_user_role、upms_role_permission 等表
 
 ```
 
+### jpa
+
+主要使用jpa操作数据库，如果想用复杂sql做直接查询，可接入EntityManagerFactory和EntityManager。
+
+
+
+### 参考
+
+本例子很多代码会参考以下开源项目
+
+1. [zheng](https://github.com/shuzheng/zheng)
+2. [favorites-web](https://github.com/cloudfavorites/favorites-web)
 
 

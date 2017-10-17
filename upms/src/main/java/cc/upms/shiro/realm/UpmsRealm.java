@@ -78,15 +78,16 @@ public class UpmsRealm extends AuthorizingRealm {
         }
 
         // 查询用户信息
-        UserInfo upmsUser = userInfoService.findByUserName(userName);
+        UserInfo user = userInfoService.findByUserName(userName);
 
-        if (null == upmsUser) {
+        if (null == user) {
             throw new UnknownAccountException();
         }
-        if (!upmsUser.getPassword().equals(MD5Util.MD5(password + upmsUser.getSalt()))) {
+
+        if (!user.getPassword().equals(MD5Util.MD5(password + user.getSalt()))) {
             throw new IncorrectCredentialsException();
         }
-        if (upmsUser.getLocked() == 1) {
+        if (user.getLocked() == 1) {
             throw new LockedAccountException();
         }
 
