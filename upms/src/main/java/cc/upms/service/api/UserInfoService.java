@@ -4,6 +4,8 @@ import cc.upms.domain.Permission;
 import cc.upms.domain.Role;
 import cc.upms.domain.UserInfo;
 import cc.upms.domain.view.PermissionView;
+import cc.upms.domain.view.RoleView;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -42,4 +44,12 @@ public interface UserInfoService {
      * @return
      */
     List<PermissionView> findUserPermissionsByUserId(Long userId);
+
+    /**
+     * 根据userId获取Role
+     * @param userId
+     * @return
+     */
+    //
+    List<RoleView> findUserRoleByUserId(Long userId);
 }

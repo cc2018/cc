@@ -1,9 +1,9 @@
 package cc.upms.repository;
 
 import cc.upms.domain.UserInfo;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface UserInfoRepository extends PagingAndSortingRepository<UserInfo,Long> {
+public interface UserInfoRepository extends CrudRepository<UserInfo,Long> {
     /**
      * 根据userName获取UserInfo
      * @param userName

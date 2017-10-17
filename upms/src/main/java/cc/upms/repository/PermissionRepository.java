@@ -2,13 +2,13 @@ package cc.upms.repository;
 
 import cc.upms.domain.Permission;
 import cc.upms.domain.view.PermissionView;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface PermissionRepository extends JpaRepository<Permission,Long> {
-    String findUserPermission = "select p.permissionId as permissionId, p.name as permissionId, p.type as type,"
+public interface PermissionRepository extends CrudRepository<Permission,Long> {
+    String findUserPermission = "select p.permissionId as permissionId, p.name as name, p.type as type,"
             + " p.permissionValue as permissionValue, p.uri as uri, p.status as status, p.orders as orders"
             + " from Permission p where p.permissionId in (select up.permissionId from UserPermission up where up.userId=?1)";
 
@@ -17,7 +17,7 @@ public interface PermissionRepository extends JpaRepository<Permission,Long> {
      * @param permissionId
      * @return
      */
-    public Permission findByPermissionId(Long permissionId);
+    Permission findByPermissionId(Long permissionId);
 
     /**
      * 获取所有权限

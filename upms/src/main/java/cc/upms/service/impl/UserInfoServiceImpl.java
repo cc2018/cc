@@ -1,7 +1,9 @@
 package cc.upms.service.impl;
 
 import cc.upms.domain.view.PermissionView;
+import cc.upms.domain.view.RoleView;
 import cc.upms.repository.PermissionRepository;
+import cc.upms.repository.RoleRepository;
 import cc.upms.repository.UserInfoRepository;
 import cc.upms.domain.Permission;
 import cc.upms.domain.Role;
@@ -23,6 +25,9 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     @Autowired
     private PermissionRepository permissionRepository;
+
+    @Autowired
+    private RoleRepository roleRepository;
 
     @Override
     public UserInfo findByUserName(String userName) {
@@ -61,8 +66,11 @@ public class UserInfoServiceImpl implements UserInfoService {
             return null;
         }
 
-        List<PermissionView> permission = permissionRepository.findUserPermissionsByUserId(userId);
+        return permissionRepository.findUserPermissionsByUserId(userId);
+    }
 
-        return null;
+    @Override
+    public List<RoleView> findUserRoleByUserId(Long userId) {
+        return roleRepository.findUserRoleByUserId(userId);
     }
 }
