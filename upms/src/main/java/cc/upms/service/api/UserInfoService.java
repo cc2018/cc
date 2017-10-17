@@ -3,6 +3,7 @@ package cc.upms.service.api;
 import cc.upms.domain.Permission;
 import cc.upms.domain.Role;
 import cc.upms.domain.UserInfo;
+import cc.upms.domain.view.PermissionView;
 
 import java.util.List;
 
@@ -40,5 +41,5 @@ public interface UserInfoService {
      * @param userId
      * @return
      */
-    List<Permission> findUserPermissionsByUserId(Long userId);
+    List<PermissionView> findUserPermissionsByUserId(Long userId);
 }

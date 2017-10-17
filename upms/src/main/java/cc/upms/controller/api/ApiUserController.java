@@ -2,6 +2,7 @@ package cc.upms.controller.api;
 
 import cc.upms.domain.Permission;
 import cc.upms.domain.UserInfo;
+import cc.upms.domain.view.PermissionView;
 import cc.upms.service.api.UserInfoService;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class ApiUserController {
         UserInfo userInfo = userService.findByUserName(name);
 
         // test
-        List<Permission> permissions =  userService.findUserPermissionsByUserId(userInfo.getUserId());
+        List<PermissionView> permissions =  userService.findUserPermissionsByUserId(userInfo.getUserId());
 
         // 使用DTO，防止db修改，客户端也要修改code
         JSONObject user = new JSONObject();

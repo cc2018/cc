@@ -1,7 +1,8 @@
 package cc.upms.service.impl;
 
-import cc.upms.repository.PermissionDao;
-import cc.upms.repository.UserInfoDao;
+import cc.upms.domain.view.PermissionView;
+import cc.upms.repository.PermissionRepository;
+import cc.upms.repository.UserInfoRepository;
 import cc.upms.domain.Permission;
 import cc.upms.domain.Role;
 import cc.upms.domain.UserInfo;
@@ -18,14 +19,14 @@ public class UserInfoServiceImpl implements UserInfoService {
     private static Logger log = LoggerFactory.getLogger(UserInfoService.class);
 
     @Autowired
-    private UserInfoDao userInfoDao;
+    private UserInfoRepository userInfoRepository;
 
     @Autowired
-    private PermissionDao permissionDao;
+    private PermissionRepository permissionRepository;
 
     @Override
     public UserInfo findByUserName(String userName) {
-        return userInfoDao.findByUserName(userName);
+        return userInfoRepository.findByUserName(userName);
     }
 
     @Override
@@ -36,7 +37,7 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Override
     public List<Permission> findAllPermissionsByUserId(Long userId) {
         // 用户不存在或锁定状态
-        UserInfo user = userInfoDao.findByUserId(userId);
+        UserInfo user = userInfoRepository.findByUserId(userId);
         if (null == user || 1 == user.getLocked()) {
             log.info("findRoleByUserId : userId={}", userId);
             return null;
@@ -52,16 +53,15 @@ public class UserInfoServiceImpl implements UserInfoService {
     }
 
     @Override
-    public List<Permission> findUserPermissionsByUserId(Long userId) {
+    public List<PermissionView> findUserPermissionsByUserId(Long userId) {
         // 用户不存在或锁定状态
-        UserInfo user = userInfoDao.findByUserId(userId);
+        UserInfo user = userInfoRepository.findByUserId(userId);
         if (null == user || 1 == user.getLocked()) {
             log.info("findRoleByUserId : userId={}", userId);
             return null;
         }
 
-        // return permissionDao.findUserPermissionsByUserId(userId);
-        List<Permission> permission = permissionDao.findAll();
+        List<PermissionView> permission = permissionRepository.findUserPermissionsByUserId(userId);
 
         return null;
     }

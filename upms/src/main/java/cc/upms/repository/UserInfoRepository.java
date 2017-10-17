@@ -3,7 +3,7 @@ package cc.upms.repository;
 import cc.upms.domain.UserInfo;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
-public interface UserInfoDao extends PagingAndSortingRepository<UserInfo,Long> {
+public interface UserInfoRepository extends PagingAndSortingRepository<UserInfo,Long> {
     /**
      * 根据userName获取UserInfo
      * @param userName

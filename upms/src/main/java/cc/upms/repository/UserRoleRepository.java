@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface UserRoleDao extends CrudRepository<UserRole,Long> {
+public interface UserRoleRepository extends CrudRepository<UserRole,Long> {
     /**
      * 根据userId获取UserRole
      * @param userId
