@@ -5,15 +5,28 @@ public class UpmsConstant {
     // type
     public static final String UPMS_TYPE = "upms.type";
     // 会话key
-    private final static String UPMS_SHIRO_SESSION = "upms-shiro-session";
+    public final static String UPMS_SHIRO_SESSION_ID= "upms-shiro-session-id";
     // 全局会话key
-    private final static String UPMS_SERVER_SESSION = "upms-server-session";
+    public final static String UPMS_SERVER_SESSION_ID = "upms-server-session-id";
     // 全局会话列表key
-    private final static String UPMS_SERVER_SESSIONS = "upms-server-sessions";
+    public final static String UPMS_SERVER_SESSION_IDS = "upms-server-sessions-ids";
     // code key
-    private final static String UPMS_SERVER_CODE = "upms-server-code";
+    public final static String UPMS_SERVER_CODE = "upms-server-code";
     // 局部会话key
-    private final static String UPMS_CLIENT_SESSION = "upms-client-session";
+    public final static String UPMS_CLIENT_SESSION_ID = "upms-client-session-id";
     // 单点同一个code所有局部会话key
-    private final static String UPMS_CLIENT_SESSIONS = "upms-client-sessions";
+    public final static String UPMS_CLIENT_SESSION_IDS = "upms-client-sessions-ids";
+
+    /*public static enum SessionType {
+        session_server("server"), session_client("client");
+        private final String info;
+
+        private SessionType(String info) {
+            this.info = info;
+        }
+
+        public String getInfo() {
+            return info;
+        }
+    }*/
 }
